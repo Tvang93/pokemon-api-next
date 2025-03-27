@@ -63,7 +63,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
           </div>
           <p id="form">{isShiny ? "Form: Shiny" : "Form: Default"}</p>
         </div>
-        <TypeComponent />
+        <TypeComponent pokeTypes={props.pokeTypes}/>
       </div>
       <EvolutionComponent />
       <MovesComponent pokeMoves={props.pokeMoves}/>

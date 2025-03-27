@@ -28,6 +28,7 @@ const PokemonPage = async ({
         pokeMoves={PokeData.moves}
         pokeAbilities={PokeData.abilities}
         pokeLocations={PokeLocationData}
+        pokeTypes={PokeData.types}
       />
     </div>
   );

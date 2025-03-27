@@ -18,6 +18,11 @@ export interface PokeInfo1 {
             name: string
         }}
     ]
+    pokeTypes: [
+        type : { type: {
+            name: string
+        }}
+    ]
 }
 
 export interface PokeMoves {
@@ -46,5 +51,9 @@ export interface PokeLocations {
 }
 
 export interface PokeTypes {
-    pokeMoves: []
+    pokeTypes: [
+        type : { type: {
+            name: string
+        }}
+    ]
 }
