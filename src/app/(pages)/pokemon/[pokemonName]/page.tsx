@@ -1,5 +1,4 @@
 import PokeInfoComponent from "@/components/PokeInfoComponent";
-import SearchBar from "@/components/SearchBar";
 import { GetApiwithUrl, GetPokemonInfo } from "@/lib/services";
 import React from "react";
 

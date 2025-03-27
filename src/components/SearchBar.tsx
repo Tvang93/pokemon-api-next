@@ -1,5 +1,6 @@
 "use client";
 
+import { GetPokemonInfo } from "@/lib/services";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
@@ -11,14 +12,16 @@ const SearchBar = () => {
     push(`/pokemon/${pokemonName}`)
   };
 
-  const handleRandomPokemon = () => {
+  const handleRandomPokemon = async() => {
     function getRandomNumber(min: number, max: number): number {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min);
     }
-    let randomNumber: number = getRandomNumber(0 ,650);
-    push(`/pokemon/${randomNumber}`)
+    const randomNumber: number = getRandomNumber(0 ,650);
+    const pokeData = await GetPokemonInfo(randomNumber.toString())
+    const pokemonName = pokeData.name
+    push(`/pokemon/${pokemonName}`)
   }
 
   return (

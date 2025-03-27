@@ -1,4 +1,4 @@
-import { PokeInfo1, PokeMoves } from "@/lib/interfaces";
+import { PokeMoves } from "@/lib/interfaces";
 import React from "react";
 
 const MovesComponent = (props: PokeMoves) => {
