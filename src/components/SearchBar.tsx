@@ -27,11 +27,11 @@ const SearchBar = () => {
   return (
     <section
       id="searchBarContent"
-      className="flex bg-[rgb(255,255,255,0.6)] mt-5 rounded-2xl w-[100%] md:max-w-182 lg:max-w-228 xl:max-w-274 self-center"
+      className="flex bg-[rgb(255,255,255,0.6)] mt-5 rounded-2xl w-[100%] md:max-w-182 lg:max-w-228 xl:max-w-274 self-center border-1"
     >
       <div
         id="favoriteTabBtn"
-        className="border-[1.5px] border-r-0 rounded-l-2xl px-2 py-1 self-center h-[100%]"
+        className="rounded-l-2xl px-2 py-1 self-center h-[100%]"
         data-drawer-target="favoritesTab"
         data-drawer-show="favoritesTab"
         aria-controls="favoritesTab"
@@ -40,26 +40,26 @@ const SearchBar = () => {
       </div>
       <div
         id="randomBtn"
-        className="border-[1.5px] px-1 py-1 self-center h-[100%] hover:cursor-pointer"
+        className="px-1 py-1 self-center h-[100%] hover:cursor-pointer border-x-1"
         onClick={handleRandomPokemon}
       >
         <img className="w-8" src="/assets/searchbar/shuffle.png" alt="" />
       </div>
       <div
         id="inputSection"
-        className="grow shrink border-y-[1.5px] border-x-0 self-center"
+        className="grow shrink self-center"
       >
         <input
           id="searchBarField"
           type="text"
           placeholder="Search Pokemon"
-          className="border-0 w-[100%] text-3xl py-[2px] ps-2 focus:outline-0"
+          className="w-[100%] text-xl sm:text-3xl py-[2px] ps-2 focus:outline-0"
           onChange={(e)=>setPokemonName(e.target.value)}
         />
       </div>
       <div
         id="searchSection"
-        className="px-5 border-[1.5px] rounded-r-2xl py-1 self-center h-[100%]"
+        className="px-5 py-1 self-center h-[100%] border-l-1"
         onClick={handleSearch}
       >
         <img
