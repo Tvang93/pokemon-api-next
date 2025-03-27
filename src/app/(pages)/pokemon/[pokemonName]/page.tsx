@@ -10,14 +10,6 @@ const PokemonPage = async ({
 }) => {
   const { pokemonName } = await params;
   const PokeData = await GetPokemonInfo(pokemonName);
-  console.log(PokeData);
-
-  // const CapitalizeFirstLetter = (word: string) => {
-  //   return `${word.charAt(0).toUpperCase()}${word.slice(1)}`
-  // }
-
-  // const MapThroughData = (object, var1, var2, var3) =>
-  //   object[`${var1}`].map((arr) => arr[`${var2}`][`${var3}`]);
 
   return (
     <div className="flex flex-col">

@@ -8,8 +8,18 @@ const SearchBar = () => {
   const [pokemonName, setPokemonName] = useState<string>("");
 
   const handleSearch = () => {
-    push(`/pokemon/${pokemonName}`);
+    push(`/pokemon/${pokemonName}`)
   };
+
+  const handleRandomPokemon = () => {
+    function getRandomNumber(min: number, max: number): number {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    let randomNumber: number = getRandomNumber(0 ,650);
+    push(`/pokemon/${randomNumber}`)
+  }
 
   return (
     <section
@@ -27,7 +37,8 @@ const SearchBar = () => {
       </div>
       <div
         id="randomBtn"
-        className="border-[1.5px] px-1 py-1 self-center h-[100%]"
+        className="border-[1.5px] px-1 py-1 self-center h-[100%] hover:cursor-pointer"
+        onClick={handleRandomPokemon}
       >
         <img className="w-8" src="/assets/searchbar/shuffle.png" alt="" />
       </div>
