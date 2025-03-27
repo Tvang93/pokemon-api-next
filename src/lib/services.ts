@@ -1,11 +1,13 @@
+import { redirect } from "next/navigation";
+
 const GetPokemonInfo = async (pokename: string) => {
     const promise = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokename}/`);
     if (!promise.ok) {
-      alert("Invalid Entry. Please type in a pokemon between Gen 1 and 5.");
+      redirect('/pokemon');
     }else{
       const data = await promise.json();
       if(data.id >= 650){
-        alert("Invalid Entry. Please type in a pokemon between Gen 1 and 5.");
+        redirect('/pokemon');
       }
       return data;
     }

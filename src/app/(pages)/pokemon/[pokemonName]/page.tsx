@@ -20,8 +20,7 @@ const PokemonPage = async ({
   //   object[`${var1}`].map((arr) => arr[`${var2}`][`${var3}`]);
 
   return (
-    <div className="flex flex-col bg-[url(/assets/pokemonCenter.jpg)] min-h-screen bg-cover bg-no-repeat bg-center bg-fixed">
-      <SearchBar />
+    <div className="flex flex-col">
       <PokeInfoComponent
         pokeName={PokeData.name}
         pokeId={PokeData.id}

@@ -24,7 +24,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
             <div id="nameSection" className="flex text-3xl md:text-[32px] lg:text-5xl mt-6 px-4 sm:px-24 md:px-4 lg:px-50 lg:m-0 xl:px-73">
                 <div>
                     <div id="notFav" className="">
-                        <img className='w-12 hover:cursor-pointer' src={isFavored ? `/assets/filled_star.png` : `/assets/star.png`} alt="star" onClick={handleFavorite}/>
+                        <img className='w-9 lg:w-12 hover:cursor-pointer' src={isFavored ? `/assets/filled_star.png` : `/assets/star.png`} alt="star" onClick={handleFavorite}/>
                     </div>
                 </div>
                 <div className="grow text-center ">
