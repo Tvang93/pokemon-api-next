@@ -19,16 +19,19 @@ const EvolutionComponent = (props: PokeEvolutions) => {
   console.log("2Stage: " + secondStage);
   console.log("3Stage: " + thirdStage);
 
+  
+
   return (
     <div className="md:mt-6 lg:row-start-2 lg:row-span-3 lg:mt-0 flex justify-center">
-      <div className="border-1 rounded-sm w-62 h-80 lg:w-[100%] lg:h-[100%] lg:pb-6 bg-[rgb(63,161,41,0.3)] self-center px-2 py-1">
+      <div className="border-1 rounded-sm w-62 h-80 lg:w-[100%] lg:h-[100%] lg:pb-6 bg-[rgb(63,161,41,0.3)] self-center px-2 py-1 shrink">
         <h1>Evolution Line:</h1>
         {
           props.pokeEvolutions.chain.evolves_to[0] != undefined ?
         
         <div id="evoBox" className="flex flex-col gap-y-5">
           <div>
-            A
+            <img src="" alt="pokemon" />
+            <h1>{firstStage}</h1>
           </div>
           <div>
             B
@@ -38,8 +41,8 @@ const EvolutionComponent = (props: PokeEvolutions) => {
           </div>
         </div> 
         :
-        <div className="flex justify-center items-center">
-          <h1>N/A</h1>
+        <div className="flex justify-center items-center h-[100%]">
+          <h1 className="text-4xl">N/A</h1>
         </div>
         }
       </div>

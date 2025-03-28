@@ -1,12 +1,8 @@
 import { PokeTypes } from "@/lib/interfaces";
-import { GetTypeIcon } from "@/lib/services";
+import { CapitalizeFirstLetter, GetTypeIcon } from "@/lib/services";
 import React from "react";
 
 const TypeComponent = (props: PokeTypes) => {
-    const CapitalizeFirstLetter = (word: string) => {
-        return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
-    };
-
     const types = props.pokeTypes
   return (
     <div className="flex justify-center text-[28px] lg:text-[32px] px-2 pt-4">

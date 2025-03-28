@@ -90,26 +90,6 @@ export interface PokeTypes {
   ];
 }
 
-// export interface PokeEvolutions {
-//   pokeEvolutions: {
-//     chain: {
-//       species: {
-//         name: string;
-//       };
-//       evolves_to: {
-//         species: {
-//           name: string;
-//         };
-//         evolves_to: {
-//           species: {
-//             name: string;
-//           };
-//         };
-//       }[];
-//     };
-//   };
-// }
-
 export interface PokeEvolutions {
     pokeEvolutions:
     {chain: {

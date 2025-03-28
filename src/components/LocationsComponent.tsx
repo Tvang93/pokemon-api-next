@@ -1,14 +1,7 @@
 import { PokeLocations } from "@/lib/interfaces";
+import { BreakWord } from "@/lib/services";
 
 const LocationsComponent = (props: PokeLocations) => {
-    const CapitalizeFirstLetter = (word: string) => {
-        return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
-    };
-
-    const BreakWord = (word: string) => {
-        return word.split('-').map(word => CapitalizeFirstLetter(word)).join(' ')
-    }
-
     const locations = props.pokeLocations.map(locations => BreakWord(locations.location_area.name)).join(", ")
 
   return (

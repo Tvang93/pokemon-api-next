@@ -7,6 +7,7 @@ import MovesComponent from "./MovesComponent";
 import AbilitiesComponent from "./AbilitiesComponent";
 import LocationsComponent from "./LocationsComponent";
 import TypeComponent from "./TypeComponent";
+import { CapitalizeFirstLetter } from "@/lib/services";
 
 const PokeInfoComponent = (props: PokeInfo1) => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
@@ -17,11 +18,6 @@ const PokeInfoComponent = (props: PokeInfo1) => {
     setIsFavored(!isFavored);
   };
 
-  const CapitalizeFirstLetter = (word: string) => {
-    return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
-  };
-
-  
   return (
     <section
       id="bodyContent"

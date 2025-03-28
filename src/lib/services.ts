@@ -72,6 +72,12 @@ const GetTypeIcon = (type: string) => {
   }
 }
 
+const CapitalizeFirstLetter = (word: string) => {
+    return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
+};
 
+const BreakWord = (word: string) => {
+    return word.split('-').map(word => CapitalizeFirstLetter(word)).join(' ')
+}
 
-export {GetPokemonInfo, GetApiwithUrl, GetSpeciesApiWithId, GetPokemonInfoNoRestriction, GetTypeIcon}
+export {GetPokemonInfo, GetApiwithUrl, GetSpeciesApiWithId, GetPokemonInfoNoRestriction, GetTypeIcon, CapitalizeFirstLetter, BreakWord}

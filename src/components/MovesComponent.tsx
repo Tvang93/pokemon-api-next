@@ -1,14 +1,8 @@
 import { PokeMoves } from "@/lib/interfaces";
+import { BreakWord } from "@/lib/services";
 import React from "react";
 
 const MovesComponent = (props: PokeMoves) => {
-    const CapitalizeFirstLetter = (word: string) => {
-        return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
-    };
-
-    const BreakWord = (word: string) => {
-        return word.split('-').map(word => CapitalizeFirstLetter(word)).join(' ')
-    }
 
     const moves = props.pokeMoves.map(moves => BreakWord(moves.move.name)).join(", ")
 
