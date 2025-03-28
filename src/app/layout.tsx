@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SearchBar from "@/components/SearchBar";
+import { FavoritesWrapper } from "./context/FavoritesContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,8 +30,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="flex flex-col bg-[url(/assets/pokemonCenter.jpg)] min-h-screen bg-cover bg-no-repeat bg-center bg-fixed">
+        <FavoritesWrapper>
         <SearchBar />
         {children}
+        </FavoritesWrapper>
         </div>
       </body>
     </html>

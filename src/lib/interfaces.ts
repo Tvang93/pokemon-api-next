@@ -120,3 +120,8 @@ export interface PokeInfo {
         }
     }
 }
+
+export interface isFavTabActive {
+    isFavTabActive: boolean
+    setIsFavTabActive: (bool: boolean) => void
+}

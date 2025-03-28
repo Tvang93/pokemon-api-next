@@ -3,10 +3,13 @@
 import { GetPokemonInfo } from "@/lib/services";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import FavoritesTabComponent from "./FavoritesTabComponent";
+import { useFavoritesContext } from "@/app/context/FavoritesContext";
 
 const SearchBar = () => {
   const { push } = useRouter();
   const [pokemonName, setPokemonName] = useState<string>("");
+  const { isFavTabActive, setIsFavTabActive} = useFavoritesContext();
 
   const handleSearch = () => {
     push(`/pokemon/${pokemonName}`)
@@ -24,6 +27,11 @@ const SearchBar = () => {
     push(`/pokemon/${pokemonName}`)
   }
 
+  const handleFavoritesTabSwitch = () => {
+    setIsFavTabActive(!isFavTabActive)
+    console.log(isFavTabActive)
+  }
+
   return (
     <section
       id="searchBarContent"
@@ -32,9 +40,7 @@ const SearchBar = () => {
       <div
         id="favoriteTabBtn"
         className="rounded-l-2xl px-2 py-1 self-center h-[100%]"
-        data-drawer-target="favoritesTab"
-        data-drawer-show="favoritesTab"
-        aria-controls="favoritesTab"
+        onClick={handleFavoritesTabSwitch}
       >
         <img className="w-8" src="/assets/searchbar/bookmark.png" alt="" />
       </div>
@@ -68,6 +74,9 @@ const SearchBar = () => {
           alt="magnifying glass"
         />
       </div>
+      {
+        isFavTabActive ? <FavoritesTabComponent/> : <></>
+      }
     </section>
   );
 };
