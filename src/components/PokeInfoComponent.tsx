@@ -8,7 +8,7 @@ import AbilitiesComponent from "./AbilitiesComponent";
 import LocationsComponent from "./LocationsComponent";
 import TypeComponent from "./TypeComponent";
 import { CapitalizeFirstLetter } from "@/lib/services";
-import { RemoveFromFavorites, SaveToFavoritePokemons } from "@/lib/localstorage";
+import { GetFavoritesFromLocalStorage, RemoveFromFavorites, SaveToFavoritePokemons } from "@/lib/localstorage";
 
 const PokeInfoComponent = (props: PokeInfo1) => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
@@ -20,6 +20,11 @@ const PokeInfoComponent = (props: PokeInfo1) => {
     setIsFavored(!isFavored);
     isFavored ? RemoveFromFavorites(pokemonName) : SaveToFavoritePokemons(pokemonName)
   };
+
+  useEffect(()=>{
+    if(GetFavoritesFromLocalStorage().includes(props.pokeName)) setIsFavored(true)
+  },[])
+
 
   useEffect(()=>{
     setPokemonName(props.pokeName)
