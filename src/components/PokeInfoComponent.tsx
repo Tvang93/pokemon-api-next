@@ -37,9 +37,10 @@ const PokeInfoComponent = (props: PokeInfo1) => {
   };
 
   useEffect(() => {
-    if (GetFavoritesFromLocalStorage().includes(props.pokeName))
+    if (GetFavoritesFromLocalStorage().includes(props.pokeName)) {
       setIsFavored(true);
-  }),[props.pokeName];
+    }
+  });
 
   useEffect(() => {
     setPokemonName(props.pokeName);
