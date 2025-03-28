@@ -7,31 +7,42 @@ import MovesComponent from "./MovesComponent";
 import AbilitiesComponent from "./AbilitiesComponent";
 import LocationsComponent from "./LocationsComponent";
 import TypeComponent from "./TypeComponent";
-import { BreakWord, CapitalizeFirstLetter } from "@/lib/services";
-import { GetFavoritesFromLocalStorage, RemoveFromFavorites, SaveToFavoritePokemons } from "@/lib/localstorage";
+import { BreakWord } from "@/lib/services";
+import {
+  GetFavoritesFromLocalStorage,
+  RemoveFromFavorites,
+  SaveToFavoritePokemons,
+} from "@/lib/localstorage";
 import { useFavoritesContext } from "@/app/context/FavoritesContext";
 
 const PokeInfoComponent = (props: PokeInfo1) => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
   const [isFavored, setIsFavored] = useState<boolean>(false);
-  const [pokemonName, setPokemonName] = useState<string>('')
-  const {update, setUpdate} = useFavoritesContext()
+  const [pokemonName, setPokemonName] = useState<string>("");
+  const { update, setUpdate } = useFavoritesContext();
 
-  const handleShinySwitch = () => setIsShiny(!isShiny);
-  const handleFavorite = () => {
-    setIsFavored(!isFavored);
-    setUpdate(!update)
-    isFavored ? RemoveFromFavorites(pokemonName) : SaveToFavoritePokemons(pokemonName)
+  const handleShinySwitch = () => {
+    setIsShiny(!isShiny);
   };
 
-  useEffect(()=>{
-    if(GetFavoritesFromLocalStorage().includes(props.pokeName)) setIsFavored(true)
-  },[])
+  const handleFavorite = () => {
+    setIsFavored(!isFavored);
+    setUpdate(!update);
+    if (isFavored) {
+      RemoveFromFavorites(pokemonName);
+    } else {
+      SaveToFavoritePokemons(pokemonName);
+    }
+  };
 
+  useEffect(() => {
+    if (GetFavoritesFromLocalStorage().includes(props.pokeName))
+      setIsFavored(true);
+  });
 
-  useEffect(()=>{
-    setPokemonName(props.pokeName)
-  }, [props.pokeName])
+  useEffect(() => {
+    setPokemonName(props.pokeName);
+  }, [props.pokeName]);
 
   return (
     <section
@@ -75,12 +86,12 @@ const PokeInfoComponent = (props: PokeInfo1) => {
           </div>
           <p id="form">{isShiny ? "Form: Shiny" : "Form: Default"}</p>
         </div>
-        <TypeComponent pokeTypes={props.pokeTypes}/>
+        <TypeComponent pokeTypes={props.pokeTypes} />
       </div>
-      <EvolutionComponent pokeEvolutions={props.pokeEvolutions}/>
-      <MovesComponent pokeMoves={props.pokeMoves}/>
-      <AbilitiesComponent pokeAbilities={props.pokeAbilities}/>
-      <LocationsComponent pokeLocations={props.pokeLocations}/>
+      <EvolutionComponent pokeEvolutions={props.pokeEvolutions} />
+      <MovesComponent pokeMoves={props.pokeMoves} />
+      <AbilitiesComponent pokeAbilities={props.pokeAbilities} />
+      <LocationsComponent pokeLocations={props.pokeLocations} />
     </section>
   );
 };

@@ -1,6 +1,6 @@
 const SaveToFavoritePokemons = (pokemon: string) => {
   if (typeof window != undefined) {
-    let pokeArr = GetFavoritesFromLocalStorage();
+    const pokeArr = GetFavoritesFromLocalStorage();
     if (!pokeArr.includes(pokemon)) {
       pokeArr.push(pokemon);
     }
@@ -10,7 +10,7 @@ const SaveToFavoritePokemons = (pokemon: string) => {
 
 const GetFavoritesFromLocalStorage = () => {
   if (typeof window != undefined) {
-    let localStorageData = localStorage.getItem("FavoritePokemons");
+    const localStorageData = localStorage.getItem("FavoritePokemons");
     if (localStorageData == null) {
       return [];
     }
@@ -20,15 +20,15 @@ const GetFavoritesFromLocalStorage = () => {
 
 const RemoveFromFavorites = (pokemon: string) => {
   if (typeof window != undefined) {
-    let localStorageData = GetFavoritesFromLocalStorage();
-    let nameIndex = localStorageData.indexOf(pokemon);
+    const localStorageData = GetFavoritesFromLocalStorage();
+    const nameIndex = localStorageData.indexOf(pokemon);
     localStorageData.splice(nameIndex, 1);
     localStorage.setItem("FavoritePokemons", JSON.stringify(localStorageData));
   }
 };
 
 const CheckFavoritePokemons = (pokemon: string) => {
-  let pokeArr = GetFavoritesFromLocalStorage();
+  const pokeArr = GetFavoritesFromLocalStorage();
   if (pokeArr.includes(pokemon)) {
     return true;
   } else {

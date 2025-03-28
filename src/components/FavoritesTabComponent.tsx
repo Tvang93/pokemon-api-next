@@ -2,7 +2,7 @@
 
 import { useFavoritesContext } from "@/app/context/FavoritesContext";
 import { GetFavoritesFromLocalStorage } from "@/lib/localstorage";
-import { BreakWord, CapitalizeFirstLetter } from "@/lib/services";
+import { BreakWord } from "@/lib/services";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 

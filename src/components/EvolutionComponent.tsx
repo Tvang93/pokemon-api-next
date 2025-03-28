@@ -1,7 +1,7 @@
 "use client";
 
 import { PokeEvolutions, PokeInfo } from "@/lib/interfaces";
-import { BreakWord, CapitalizeFirstLetter, GetPokemonInfoNoRestriction } from "@/lib/services";
+import { BreakWord, GetPokemonInfoNoRestriction } from "@/lib/services";
 import React, { useEffect, useState } from "react";
 
 const EvolutionComponent = (props: PokeEvolutions) => {
@@ -33,7 +33,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
       setThirdStageData(thirdData);
     }
     fetchData()
-  }, [])
+  })
 
   return (
     <div className="md:mt-6 lg:row-start-2 lg:row-span-3 lg:mt-0 flex justify-center">
