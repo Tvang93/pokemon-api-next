@@ -1,5 +1,6 @@
 import { PokeTypes } from "@/lib/interfaces";
 import { CapitalizeFirstLetter, GetTypeIcon } from "@/lib/services";
+import Image from "next/image";
 import React from "react";
 
 const TypeComponent = (props: PokeTypes) => {
@@ -11,7 +12,7 @@ const TypeComponent = (props: PokeTypes) => {
                 return (
                 <div className="flex me-2" key={key}>
                     <div className="max-w-12 mr-2">
-                        <img
+                        <Image
                             id="typeImg"
                             className="text-[16px] "
                             src={GetTypeIcon(types.type.name)}

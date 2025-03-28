@@ -14,6 +14,7 @@ import {
   SaveToFavoritePokemons,
 } from "@/lib/localstorage";
 import { useFavoritesContext } from "@/app/context/FavoritesContext";
+import Image from "next/image";
 
 const PokeInfoComponent = (props: PokeInfo1) => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
@@ -56,7 +57,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
         >
           <div>
             <div id="notFav" className="">
-              <img
+              <Image
                 className="w-9 lg:w-12 hover:cursor-pointer"
                 src={isFavored ? `/assets/filled_star.png` : `/assets/star.png`}
                 alt="star"
@@ -76,7 +77,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
           className="flex flex-col items-center self-center px-16 pt-4 "
         >
           <div className="max-w-67">
-            <img
+            <Image
               id="img1"
               className="hover:cursor-pointer"
               src={isShiny ? props.pokeImageShiny : props.pokeImageDefault}

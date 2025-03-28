@@ -2,6 +2,7 @@
 
 import { PokeEvolutions, PokeInfo } from "@/lib/interfaces";
 import { BreakWord, GetPokemonInfoNoRestriction } from "@/lib/services";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const EvolutionComponent = (props: PokeEvolutions) => {
@@ -48,7 +49,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
               firstStageData.map((mon, key: number) => {
                 return (
                   <div className="flex flex-col items-center" key={key}>
-                    <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
+                    <Image className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
                     <h1>{BreakWord(mon.name)}</h1>
                   </div>
                 )
@@ -64,7 +65,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
                 if(mon.id>=650) return <div key={key}></div>
                 return (
                   <div className="flex flex-col items-center" key={key}>
-                    <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
+                    <Image className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
                     <h1>{BreakWord(mon.name)}</h1>
                   </div>
                 )
@@ -77,7 +78,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
                 if(mon.id>=650) return <></>
                 return (
                   <div className="flex flex-col items-center" key={key}>
-                    <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
+                    <Image className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
                     <h1>{BreakWord(mon.name)}</h1>
                   </div>
                 )
