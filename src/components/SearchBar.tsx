@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import React, { useState, KeyboardEvent } from "react";
 import FavoritesTabComponent from "./FavoritesTabComponent";
 import { useFavoritesContext } from "@/app/context/FavoritesContext";
-import Image from "next/image";
 
 const SearchBar = () => {
   const { push } = useRouter();
@@ -46,14 +45,14 @@ const SearchBar = () => {
         className="rounded-l-2xl px-2 py-1 self-center h-[100%] hover:cursor-pointer"
         onClick={handleFavoritesTabSwitch}
       >
-        <Image className="w-8" src="/assets/searchbar/bookmark.png" alt="" />
+        <img className="w-8" src="/assets/searchbar/bookmark.png" alt="" />
       </div>
       <div
         id="randomBtn"
         className="px-1 py-1 self-center h-[100%] hover:cursor-pointer border-x-1"
         onClick={handleRandomPokemon}
       >
-        <Image className="w-8" src="/assets/searchbar/shuffle.png" alt="" />
+        <img className="w-8" src="/assets/searchbar/shuffle.png" alt="" />
       </div>
       <div
         id="inputSection"
@@ -73,7 +72,7 @@ const SearchBar = () => {
         className="px-5 py-1 self-center h-[100%] border-l-1 hover:cursor-pointer"
         onClick={handleSearch}
       >
-        <Image
+        <img
           className="w-8"
           src="/assets/searchbar/search.png"
           alt="magnifying glass"
