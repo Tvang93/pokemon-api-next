@@ -29,7 +29,6 @@ const SearchBar = () => {
 
   const handleFavoritesTabSwitch = () => {
     setIsFavTabActive(!isFavTabActive)
-    console.log(isFavTabActive)
   }
 
   return (
@@ -39,7 +38,7 @@ const SearchBar = () => {
     >
       <div
         id="favoriteTabBtn"
-        className="rounded-l-2xl px-2 py-1 self-center h-[100%]"
+        className="rounded-l-2xl px-2 py-1 self-center h-[100%] hover:cursor-pointer"
         onClick={handleFavoritesTabSwitch}
       >
         <img className="w-8" src="/assets/searchbar/bookmark.png" alt="" />
@@ -59,13 +58,13 @@ const SearchBar = () => {
           id="searchBarField"
           type="text"
           placeholder="Search Pokemon"
-          className="w-[100%] text-xl sm:text-3xl py-[2px] ps-2 focus:outline-0"
+          className="w-[100%] text-xl sm:text-3xl py-[2px] ps-2 focus:outline-0 hover:cursor-text"
           onChange={(e)=>setPokemonName(e.target.value)}
         />
       </div>
       <div
         id="searchSection"
-        className="px-5 py-1 self-center h-[100%] border-l-1"
+        className="px-5 py-1 self-center h-[100%] border-l-1 hover:cursor-pointer"
         onClick={handleSearch}
       >
         <img
@@ -75,7 +74,7 @@ const SearchBar = () => {
         />
       </div>
       {
-        isFavTabActive ? <FavoritesTabComponent/> : <></>
+        isFavTabActive && <FavoritesTabComponent/>
       }
     </section>
   );
