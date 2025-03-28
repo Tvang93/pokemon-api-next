@@ -1,5 +1,4 @@
 import PokeInfoComponent from "@/components/PokeInfoComponent";
-import { PokeEvolutions } from "@/lib/interfaces";
 import { GetApiwithUrl, GetPokemonInfo, GetSpeciesApiWithId } from "@/lib/services";
 import React from "react";
 
@@ -10,9 +9,6 @@ const PokemonPage = async ({
 }) => {
   const { pokemonName } = await params;
   const PokeData = await GetPokemonInfo(pokemonName);
-  // console.log(PokeData.types)
-  // const types = PokeData.types
-  // console.log(types)
   const locations = PokeData.location_area_encounters;
   const PokeLocationData = await GetApiwithUrl(locations);
   const pokeId = PokeData.id;

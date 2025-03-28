@@ -42,12 +42,12 @@ const EvolutionComponent = (props: PokeEvolutions) => {
         {
           props.pokeEvolutions.chain.evolves_to[0] != undefined ? (
         
-        <div id="evoBox" className="flex flex-col gap-y-5">
-          <div className="flex justify-center m-3">
+        <div id="evoBox" className="flex flex-col gap-y-2 lg:gap-y-0 lg:justify-evenly h-[100%]">
+          <div className="flex justify-center">
             { firstStageData[0] != undefined ? (
-              firstStageData.map((mon) => {
+              firstStageData.map((mon, key: number) => {
                 return (
-                  <div className="flex flex-col items-center" key={mon.id}>
+                  <div className="flex flex-col items-center" key={key}>
                     <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
                     <h1>{CapitalizeFirstLetter(mon.name)}</h1>
                   </div>
@@ -58,10 +58,10 @@ const EvolutionComponent = (props: PokeEvolutions) => {
             )
             }
           </div>
-          <div className={`flex m-3 gap-x-6 ${secondStageData[2] == undefined ? `justify-center` :`overflow-x-scroll`}`}>
+          <div className={`flex gap-x-6 ${secondStageData[2] == undefined ? `justify-center` :`overflow-x-scroll`}`}>
             {
               secondStageData.map((mon, key:number) => {
-                if(mon.id>=650) return <></>
+                if(mon.id>=650) return <div key={key}></div>
                 return (
                   <div className="flex flex-col items-center" key={key}>
                     <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
@@ -71,7 +71,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
               })
             }
           </div>
-          <div className={`flex m-3 gap-x-6 ${secondStageData[2] == undefined ? `justify-center` :`overflow-x-scroll`}`}>
+          <div className={`flex gap-x-6 ${secondStageData[2] == undefined ? `justify-center` :`overflow-x-scroll`}`}>
             {
               thirdStageData.map((mon, key:number) => {
                 if(mon.id>=650) return <></>

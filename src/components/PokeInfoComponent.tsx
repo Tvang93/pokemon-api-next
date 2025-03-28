@@ -1,22 +1,29 @@
 "use client";
 
 import { PokeInfo1 } from "@/lib/interfaces";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import EvolutionComponent from "./EvolutionComponent";
 import MovesComponent from "./MovesComponent";
 import AbilitiesComponent from "./AbilitiesComponent";
 import LocationsComponent from "./LocationsComponent";
 import TypeComponent from "./TypeComponent";
 import { CapitalizeFirstLetter } from "@/lib/services";
+import { RemoveFromFavorites, SaveToFavoritePokemons } from "@/lib/localstorage";
 
 const PokeInfoComponent = (props: PokeInfo1) => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
   const [isFavored, setIsFavored] = useState<boolean>(false);
+  const [pokemonName, setPokemonName] = useState<string>('')
 
   const handleShinySwitch = () => setIsShiny(!isShiny);
   const handleFavorite = () => {
     setIsFavored(!isFavored);
+    isFavored ? RemoveFromFavorites(pokemonName) : SaveToFavoritePokemons(pokemonName)
   };
+
+  useEffect(()=>{
+    setPokemonName(props.pokeName)
+  }, [props.pokeName])
 
   return (
     <section
