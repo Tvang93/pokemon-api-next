@@ -21,6 +21,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
     return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
   };
 
+  
   return (
     <section
       id="bodyContent"
@@ -65,7 +66,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
         </div>
         <TypeComponent pokeTypes={props.pokeTypes}/>
       </div>
-      <EvolutionComponent />
+      <EvolutionComponent pokeEvolutions={props.pokeEvolutions}/>
       <MovesComponent pokeMoves={props.pokeMoves}/>
       <AbilitiesComponent pokeAbilities={props.pokeAbilities}/>
       <LocationsComponent pokeLocations={props.pokeLocations}/>
