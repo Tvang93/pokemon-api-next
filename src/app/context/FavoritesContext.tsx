@@ -5,9 +5,9 @@ import React, { createContext, useContext, useState } from "react"
 
 const FavoritesContext = createContext<isFavTabActive>({
     isFavTabActive: false,
-    setIsFavTabActive: (bool: boolean) => false,
+    setIsFavTabActive: (bool: boolean) => bool,
     update: false,
-    setUpdate: (bool: boolean) => false
+    setUpdate: (bool: boolean) => bool
 })
 
 
