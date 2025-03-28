@@ -108,3 +108,15 @@ export interface PokeEvolutions {
         }[]
     }}
 }
+
+export interface PokeInfo {
+    id: number
+    name: string
+    sprites: {
+        other: {
+            "official-artwork": {
+                front_default: string
+            }
+        }
+    }
+}
