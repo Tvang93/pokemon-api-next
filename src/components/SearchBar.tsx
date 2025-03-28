@@ -2,7 +2,7 @@
 
 import { GetPokemonInfo } from "@/lib/services";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useState, KeyboardEvent } from "react";
 import FavoritesTabComponent from "./FavoritesTabComponent";
 import { useFavoritesContext } from "@/app/context/FavoritesContext";
 
@@ -14,6 +14,10 @@ const SearchBar = () => {
   const handleSearch = () => {
     push(`/pokemon/${pokemonName}`)
   };
+
+  const handleEnterSearch = (event: KeyboardEvent<HTMLInputElement>) => {
+    if(event.key === "Eneter") push(`/pokemon/${pokemonName}`)
+  }
 
   const handleRandomPokemon = async() => {
     function getRandomNumber(min: number, max: number): number {
@@ -60,6 +64,7 @@ const SearchBar = () => {
           placeholder="Search Pokemon"
           className="w-[100%] text-xl sm:text-3xl py-[2px] ps-2 focus:outline-0 hover:cursor-text"
           onChange={(e)=>setPokemonName(e.target.value)}
+          onKeyDown={(e)=>handleEnterSearch(e)}
         />
       </div>
       <div

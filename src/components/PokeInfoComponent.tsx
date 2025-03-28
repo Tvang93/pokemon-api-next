@@ -7,17 +7,20 @@ import MovesComponent from "./MovesComponent";
 import AbilitiesComponent from "./AbilitiesComponent";
 import LocationsComponent from "./LocationsComponent";
 import TypeComponent from "./TypeComponent";
-import { CapitalizeFirstLetter } from "@/lib/services";
+import { BreakWord, CapitalizeFirstLetter } from "@/lib/services";
 import { GetFavoritesFromLocalStorage, RemoveFromFavorites, SaveToFavoritePokemons } from "@/lib/localstorage";
+import { useFavoritesContext } from "@/app/context/FavoritesContext";
 
 const PokeInfoComponent = (props: PokeInfo1) => {
   const [isShiny, setIsShiny] = useState<boolean>(false);
   const [isFavored, setIsFavored] = useState<boolean>(false);
   const [pokemonName, setPokemonName] = useState<string>('')
+  const {update, setUpdate} = useFavoritesContext()
 
   const handleShinySwitch = () => setIsShiny(!isShiny);
   const handleFavorite = () => {
     setIsFavored(!isFavored);
+    setUpdate(!update)
     isFavored ? RemoveFromFavorites(pokemonName) : SaveToFavoritePokemons(pokemonName)
   };
 
@@ -51,7 +54,7 @@ const PokeInfoComponent = (props: PokeInfo1) => {
             </div>
           </div>
           <div className="grow text-center ">
-            <h1 id="pokeName">{CapitalizeFirstLetter(props.pokeName)}</h1>
+            <h1 id="pokeName">{BreakWord(props.pokeName)}</h1>
           </div>
           <div>
             <h1 id="pokeId">{props.pokeId.toString().padStart(3, "0")}</h1>

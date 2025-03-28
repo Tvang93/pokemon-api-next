@@ -21,8 +21,6 @@ const GetFavoritesFromLocalStorage = () => {
 const RemoveFromFavorites = (pokemon: string) => {
   if (typeof window != undefined) {
     let localStorageData = GetFavoritesFromLocalStorage();
-    console.log(localStorageData);
-    console.log(typeof localStorageData);
     let nameIndex = localStorageData.indexOf(pokemon);
     localStorageData.splice(nameIndex, 1);
     localStorage.setItem("FavoritePokemons", JSON.stringify(localStorageData));
@@ -31,7 +29,6 @@ const RemoveFromFavorites = (pokemon: string) => {
 
 const CheckFavoritePokemons = (pokemon: string) => {
   let pokeArr = GetFavoritesFromLocalStorage();
-  console.log(pokeArr.includes(pokemon));
   if (pokeArr.includes(pokemon)) {
     return true;
   } else {

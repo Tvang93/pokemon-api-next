@@ -1,7 +1,7 @@
 "use client";
 
 import { PokeEvolutions, PokeInfo } from "@/lib/interfaces";
-import { CapitalizeFirstLetter, GetPokemonInfoNoRestriction } from "@/lib/services";
+import { BreakWord, CapitalizeFirstLetter, GetPokemonInfoNoRestriction } from "@/lib/services";
 import React, { useEffect, useState } from "react";
 
 const EvolutionComponent = (props: PokeEvolutions) => {
@@ -49,7 +49,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
                 return (
                   <div className="flex flex-col items-center" key={key}>
                     <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
-                    <h1>{CapitalizeFirstLetter(mon.name)}</h1>
+                    <h1>{BreakWord(mon.name)}</h1>
                   </div>
                 )
               })
@@ -65,7 +65,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
                 return (
                   <div className="flex flex-col items-center" key={key}>
                     <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
-                    <h1>{CapitalizeFirstLetter(mon.name)}</h1>
+                    <h1>{BreakWord(mon.name)}</h1>
                   </div>
                 )
               })
@@ -78,7 +78,7 @@ const EvolutionComponent = (props: PokeEvolutions) => {
                 return (
                   <div className="flex flex-col items-center" key={key}>
                     <img className="max-w-15 lg:max-w-20" src={mon.sprites.other["official-artwork"].front_default} alt='pokemon' />
-                    <h1>{CapitalizeFirstLetter(mon.name)}</h1>
+                    <h1>{BreakWord(mon.name)}</h1>
                   </div>
                 )
               })

@@ -2,13 +2,13 @@
 
 import { useFavoritesContext } from "@/app/context/FavoritesContext";
 import { GetFavoritesFromLocalStorage } from "@/lib/localstorage";
-import { CapitalizeFirstLetter } from "@/lib/services";
+import { BreakWord, CapitalizeFirstLetter } from "@/lib/services";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 
 const FavoritesTabComponent = () => {
     const {push} = useRouter()
-    const { isFavTabActive, setIsFavTabActive } = useFavoritesContext();
+    const { isFavTabActive, setIsFavTabActive , update} = useFavoritesContext();
 
     const handleFavoritesTabSwitch = () => {
         setIsFavTabActive(!isFavTabActive)
@@ -16,7 +16,10 @@ const FavoritesTabComponent = () => {
 
       const handleSearch = (pokemonName:string) => {
         push(`/pokemon/${pokemonName}`)
-      }; 
+      };
+
+      useEffect(()=>{
+      }, [update])
     
   return (
     <div
@@ -41,7 +44,7 @@ const FavoritesTabComponent = () => {
         {
             GetFavoritesFromLocalStorage().map((pokemon:string, key:number) => {
                 return(
-                    <p className="hover:cursor-pointer" key={key} onClick={()=>handleSearch(pokemon)}>{CapitalizeFirstLetter(pokemon)}</p>
+                    <p className="hover:cursor-pointer" key={key} onClick={()=>handleSearch(pokemon)}>{BreakWord(pokemon)}</p>
                 )
             })
         }
