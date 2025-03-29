@@ -29,6 +29,7 @@ Requirements:
     Have a Prototype in Figma (Desktop, Tablet, Mobile)
 
 ### Peer
-
+Kassandra Spacek
 
 ### Review
+Everything looks good and works well. I would suggest changing the text color in some areas, the white text on the almost white backgrounds made it very hard to read. I would also suggest making the way to change to shiny form a bit more obvious, I though that feture was not there until I checked the code. Great job all around its very clean.
